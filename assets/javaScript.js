@@ -1,17 +1,13 @@
-/*console.log("HIER");
 
 class DrumMaschine extends React.Component {
     constructor(props) {
         super(props);
-        this.state({
-
-        });
         
     }
     render() {
         return(
             <div id="drum-maschine">
-                <button class="drum-pad" id="q-pad">Q</button>
+                <button class="drum-pad button" id="q-pad">Q</button>
                 <button class="drum-pad" id="w-pad">W</button>
                 <button class="drum-pad" id="e-pad">E</button>
                 <button class="drum-pad" id="a-pad">A</button>
@@ -25,12 +21,4 @@ class DrumMaschine extends React.Component {
     }
 }
 
-ReactDOM.render(<DrumMaschine />, document.getElementById("root"));*/
-
-/*const domContainer = document.querySelector('#root');
-const root = ReactDOM.createRoot(domContainer);
-root.render();*/
-
-const myelement = <h1>Hello World</h1>;
-
-ReactDOM.render(myelement, document.getElementById('root'));
+ReactDOM.render(<DrumMaschine />, document.getElementById("root"));
