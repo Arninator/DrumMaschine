@@ -24,15 +24,24 @@ class DrumMaschine extends React.Component {
         return(
             <div id="drum-container">
                 <div className="drum-maschine" id="drum-maschine" onClick={this.handlePush}>
-                    <Button id="Q-pad" char="Q" file="audio/CUT-KIK(.WAV"/>
-                    <button type="button" className="drum-pad btn" id="w-pad">W</button>
+                    <Button id="Q-pad" char="Q" file="audio/CUT-KIK(.WAV" />
+                    <Button id="W-pad" char="W" file="audio/BASSD.WAV" />
+                    <Button id="E-pad" char="E" file="audio/AIR-SNR(.WAV" />
+                    <Button id="A-pad" char="A" file="audio/CL-HH1(L.WAV" />
+                    <Button id="S-pad" char="S" file="audio/FILTKIK(.WAV" />
+                    <Button id="D-pad" char="D" file="audio/HORNZ(LD.WAV" />
+                    <Button id="Y-pad" char="Y" file="audio/KIZICK(L.WAV" />
+                    <Button id="X-pad" char="X" file="audio/RATTLEKI.WAV" />
+                    <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
+
+                    {/* <button type="button" className="drum-pad btn" id="w-pad">W</button>
                     <button type="button" className="drum-pad btn" id="e-pad">E</button>
                     <button type="button" className="drum-pad btn" id="a-pad">A</button>
                     <button type="button" className="drum-pad btn" id="s-pad">S</button>
                     <button type="button" className="drum-pad btn" id="d-pad">D</button>
                     <button type="button" className="drum-pad btn" id="y-pad">Y</button>
                     <button type="button" className="drum-pad btn" id="x-pad">X</button>
-                    <button type="button" className="drum-pad btn" id="c-pad">C</button>
+                    <button type="button" className="drum-pad btn" id="c-pad">C</button> */}
                 </div>
                 <div className="drum-maschine" id="drum-maschine2">
                     <button type="button" className="drum-pad btn" id="7-pad">7</button>
@@ -53,10 +62,16 @@ class DrumMaschine extends React.Component {
 const Button = (props) => {
     // console.log("--- " + props.id)
     return(
-        <div>
-            <button type="button" className="drum-pad btn" id={props.id} char={props.char} file={props.file} onClick={props.onClick}>{props.char}</button>
-            <audio id={"audio-" + props.id} ><source src={props.file} type="audio/mpeg" /></audio>
-        </div>
+        <button type="button" 
+            className="drum-pad btn"
+            id={props.id} char={props.char}
+            file={props.file}
+            onClick={props.onClick}>
+                {props.char}
+                <audio id={"audio-" + props.id} >
+                    <source src={props.file} type="audio/mpeg" />
+                </audio>
+        </button>
     );
 }
 
