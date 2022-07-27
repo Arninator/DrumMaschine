@@ -1,5 +1,4 @@
 * {
-    background-color: palegreen;
     margin: 0%;
     padding: 0%;
 }
@@ -21,6 +20,7 @@ body {
     
     background-color: slategray;
     border: 1px solid whitesmoke;
+    border-radius: 0.5%;
     
     margin: auto;
     width: 100%;
@@ -36,6 +36,7 @@ body {
     
     background-color: gainsboro;
     border: 1px solid whitesmoke;
+    border-radius: 1%;
 }
 .drum-pad {
     background-color: lightsteelblue;
