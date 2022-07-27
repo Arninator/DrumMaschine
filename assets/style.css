@@ -3,22 +3,48 @@
     margin: 0%;
     padding: 0%;
 }
-#drum-maschine {
+body {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 20vw;
-    height: 20vw;
-    flex-wrap: wrap;
-    margin: 33vh auto;
-    border: 1px solid red;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
 }
-.drum-pad {
-    background-color: grey;
+#drum-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: slategray;
+    border: 1px solid whitesmoke;
+    
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.drum-maschine {
+    flex-wrap: wrap;
+    
     width: 30%;
     height: 30%;
-    border: 1px solid red;
+    margin: 5%;
+    padding: 2%;
+    
+    background-color: gainsboro;
+    border: 1px solid whitesmoke;
+}
+.drum-pad {
+    background-color: lightsteelblue;
+    width: 30%;
+    min-width: 10vh;
+    height: 30%;
+    min-height: 10vh;
+    border: 2px solid black;
     margin: 1.5%;
-    color: aqua;
+    color: steelblue;
+    font-weight: 600;
 }
