@@ -37,6 +37,7 @@ body {
     background-color: gainsboro;
     border: 1px solid whitesmoke;
     border-radius: 1%;
+    box-shadow: 1px 1px 1px 1px darkslategrey;
 }
 .drum-pad {
     background-color: lightsteelblue;
@@ -44,7 +45,7 @@ body {
     min-width: 10vh;
     height: 30%;
     min-height: 10vh;
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 1.5%;
     color: steelblue;
     font-weight: 600;
