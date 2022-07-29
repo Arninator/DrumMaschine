@@ -1,3 +1,23 @@
+const keyCodes = {
+    81: "Q",
+    87: "W",
+    69: "E",
+    65: "A",
+    83: "S",
+    68: "D",
+    89: "Y",
+    88: "X",
+    67: "C",
+    103: "7",
+    104: "8",
+    105: "9",
+    100: "4",
+    101: "5",
+    102: "6",
+    97: "1",
+    98: "2",
+    99: "3"
+}
 
 class DrumMaschine extends React.Component {
     constructor(props) {
@@ -9,21 +29,37 @@ class DrumMaschine extends React.Component {
             file: "",
         }
         this.handlePush = this.handlePush.bind(this);
+        this.pressKey = this.pressKey.bind(this);
         this.playSound = this.playSound.bind(this);
 
     }
-    handlePush (e) {
+    componentDidMount() {
+        document.addEventListener('keydown', this.pressKey);
+      }
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.pressKey);
+    }
+
+
+    handlePush(e) {
         this.playSound(e.target.id);
+    }
+    pressKey(e) {
+        const code = e.code.charAt(3);
+        // console.log(code);
+        this.playSound(code + "-pad");
     }
     playSound(id) {
         const sound = document.getElementById("audio-" + id);
         sound.currentTime = 0;
         sound.play();
     }
+
+    
     render() {
         return(
             <div id="drum-container">
-                <div className="drum-maschine" id="drum-maschine" onClick={this.handlePush}>
+                <div className="drum-maschine" id="drum-maschine" onClick={this.handlePush} onKeyDown={this.pressKey}>
                     <Button id="Q-pad" char="Q" file="audio/CUT-KIK(.WAV" />
                     <Button id="W-pad" char="W" file="audio/BASSD.WAV" />
                     <Button id="E-pad" char="E" file="audio/AIR-SNR(.WAV" />
@@ -33,15 +69,6 @@ class DrumMaschine extends React.Component {
                     <Button id="Y-pad" char="Y" file="audio/KIZICK(L.WAV" />
                     <Button id="X-pad" char="X" file="audio/RATTLEKI.WAV" />
                     <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
-
-                    {/* <button type="button" className="drum-pad btn" id="w-pad">W</button>
-                    <button type="button" className="drum-pad btn" id="e-pad">E</button>
-                    <button type="button" className="drum-pad btn" id="a-pad">A</button>
-                    <button type="button" className="drum-pad btn" id="s-pad">S</button>
-                    <button type="button" className="drum-pad btn" id="d-pad">D</button>
-                    <button type="button" className="drum-pad btn" id="y-pad">Y</button>
-                    <button type="button" className="drum-pad btn" id="x-pad">X</button>
-                    <button type="button" className="drum-pad btn" id="c-pad">C</button> */}
                 </div>
                 <div className="drum-maschine" id="drum-maschine2">
                     <button type="button" className="drum-pad btn" id="7-pad">7</button>
@@ -62,11 +89,12 @@ class DrumMaschine extends React.Component {
 const Button = (props) => {
     // console.log("--- " + props.id)
     return(
-        <button type="button" 
-            className="drum-pad btn"
+        <button
+            className="drum-pad"
             id={props.id} char={props.char}
             file={props.file}
-            onClick={props.onClick}>
+            onClick={props.onClick}
+            onKeyDown={props.onKeyDown}>
                 {props.char}
                 <audio id={"audio-" + props.id} >
                     <source src={props.file} type="audio/mpeg" />
