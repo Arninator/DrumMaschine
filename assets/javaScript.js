@@ -35,8 +35,8 @@ class DrumMaschine extends React.Component {
         sound.currentTime = 0;
         sound.play();
 
-        button.classList.add("drum-pad:active");
-        button.to();
+        button.classList.add("active");
+        setTimeout(() => button.classList.remove("active"), 100);
     }
 
 

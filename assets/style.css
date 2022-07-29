@@ -46,9 +46,9 @@ body {
     height: 30%;
     min-height: 10vh;
 
-    background-image: radial-gradient(circle, rgb(209, 161, 209) 0%, magenta 25%, rgb(209, 161, 209) 75%);
+    background-image: radial-gradient(circle, rgb(209, 161, 209) 0%, rgb(255, 73, 255) 25%, rgb(209, 161, 209) 75%);
 
-    border: 2px solid rgb(253, 195, 253);
+    /* border: 2px solid rgb(253, 195, 253); */
     border-radius: 4%;
     margin: 1.5%;
     color: darkslategrey;
