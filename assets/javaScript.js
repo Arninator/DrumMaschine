@@ -87,7 +87,7 @@ const Button = (props) => {
             file={props.file}
             onClick={props.onClick}
             onKeyDown={props.onKeyDown}>
-                {props.char}
+                {/* {props.char} */}
                 <audio id={"audio-" + props.id} >
                     <source src={props.file} type="audio/mpeg" />
                 </audio>
