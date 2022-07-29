@@ -31,12 +31,16 @@ class DrumMaschine extends React.Component {
     playSound(id) {
         const sound = document.getElementById("audio-" + id);
         const button = document.getElementById(id);
+        const display = document.getElementById("display");
         
         sound.currentTime = 0;
         sound.play();
 
         button.classList.add("active");
         setTimeout(() => button.classList.remove("active"), 100);
+
+        display.innerText = id;
+        // console.log("display.value: " + display.value);
     }
 
 
@@ -53,6 +57,9 @@ class DrumMaschine extends React.Component {
                     <Button id="Z-pad" char="Z" file="audio/KIZICK(L.WAV" />
                     <Button id="X-pad" char="X" file="audio/RATTLEKI.WAV" />
                     <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
+                </div>
+                <div id="display-container">
+                    <Display id="display" value="blavla"/>
                 </div>
                 <div className="drum-maschine" id="drum-maschine2" onClick={this.handlePush} onKeyDown={this.pressKey}>
                     <Button id="Y-pad" char="Y" file="audio/CUT-KIK(.WAV" />
@@ -85,6 +92,14 @@ const Button = (props) => {
                     <source src={props.file} type="audio/mpeg" />
                 </audio>
         </button>
+    );
+}
+const Display = (props) => {
+    return(
+        <div 
+            id={props.id}
+            value={props.value}>
+        </div>
     );
 }
 
