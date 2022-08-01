@@ -11,6 +11,7 @@ class DrumMaschine extends React.Component {
         this.handlePush = this.handlePush.bind(this);
         this.pressKey = this.pressKey.bind(this);
         this.playSound = this.playSound.bind(this);
+        this.handleChecked = this.handleChecked.bind(this);
 
     }
     componentDidMount() {
@@ -42,6 +43,19 @@ class DrumMaschine extends React.Component {
         display.innerText = id;
         // console.log("display.value: " + display.value);
     }
+    handleChecked(e) {
+        const switchButton = document.getElementById("switch-button");
+        const buttons = document.getElementsByClassName("drum-pad");
+        if (switchButton.checked) {
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.add("unpowered");
+            }
+        } else {
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("unpowered");
+            }
+        }
+    }
 
 
     render() {
@@ -60,7 +74,7 @@ class DrumMaschine extends React.Component {
                 </div>
                 <div id="controls">
                     <label class="switch">
-                        <input type="checkbox" />
+                        <input id="switch-button" type="checkbox" onClick={this.handleChecked}/>
                         <span class="slider round"></span>
                     </label>
                     <Display id="display" value="Push it..."/>

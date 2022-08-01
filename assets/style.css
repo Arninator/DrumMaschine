@@ -48,13 +48,17 @@ body {
     height: 30%;
     min-height: 10vh;
 
-    background-image: radial-gradient(circle, rgb(209, 161, 209) 0%, rgb(255, 73, 255) 25%, rgb(209, 161, 209) 75%);
+    background-image: radial-gradient(circle, whitesmoke 0%, gainsboro, whitesmoke 75%);
+
 
     border-radius: 4%;
     margin: 1.5%;
     color: darkslategrey;
     font-weight: 300;
     box-shadow: 3px 3px darkslategrey;
+}
+.unpowered {
+    background-image: radial-gradient(circle, rgb(209, 161, 209) 0%, rgb(255, 73, 255) 25%, rgb(209, 161, 209) 75%);
 }
 .drum-pad:active{
     background-image: radial-gradient(circle, rgb(231, 248, 214) 0%, chartreuse 25%, rgb(231, 248, 214) 75%);
