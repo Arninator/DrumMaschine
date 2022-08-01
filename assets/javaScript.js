@@ -82,10 +82,13 @@ class DrumMaschine extends React.Component {
                     <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
                 </div>
                 <div id="controls">
-                    <label className="switch">
-                        <input id="switch-button" type="checkbox" onClick={this.handleChecked}/>
-                        <span className="slider round"></span>
-                    </label>
+                    <div id="power-div">
+                        <label className="switch">
+                            <input id="switch-button" type="checkbox" onClick={this.handleChecked}/>
+                            <span className="slider round"></span>
+                        </label>
+                        <div><i class="fa fa-power-off"></i></div>
+                    </div>
                     <Display id="display" value=""/>
                 </div>
                 <div className="drum-maschine" id="drum-maschine2" onClick={this.handlePush} onKeyDown={this.pressKey}>

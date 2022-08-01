@@ -20,7 +20,8 @@ body {
     justify-content: space-between;
     align-items: center;
     
-    background-color: slategray;
+    background-image: linear-gradient(45deg, darkslategrey, lightslategray 10%, darkslategrey, lightslategray 25%, darkslategrey 60%, lightslategray 90%);
+    /* background-color: slategray; */
     border: 1px solid whitesmoke;
     border-radius: 0.5%;
     
@@ -91,13 +92,25 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: baseline;
+
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: monospace;
+    color: black;
+}
+#power-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
 }
 .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin: 3vh 1vh 3vh 0vh;
 }
   
 /* Hide default HTML checkbox */
