@@ -46,14 +46,21 @@ class DrumMaschine extends React.Component {
     handleChecked(e) {
         const switchButton = document.getElementById("switch-button");
         const buttons = document.getElementsByClassName("drum-pad");
+        const displayContainer = document.getElementsByClassName("display-container");
+        const display = document.getElementById("display");
+
         if (switchButton.checked) {
             for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.add("unpowered");
+                buttons[i].classList.add("powered");
             }
+            displayContainer[0].classList.add("powered-display-container");
+            display.innerText = "Push it...";
         } else {
             for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("unpowered");
+                buttons[i].classList.remove("powered");
             }
+            displayContainer[0].classList.remove("powered-display-container");
+            display.innerText = "";
         }
     }
 
@@ -73,11 +80,11 @@ class DrumMaschine extends React.Component {
                     <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
                 </div>
                 <div id="controls">
-                    <label class="switch">
+                    <label className="switch">
                         <input id="switch-button" type="checkbox" onClick={this.handleChecked}/>
-                        <span class="slider round"></span>
+                        <span className="slider round"></span>
                     </label>
-                    <Display id="display" value="Push it..."/>
+                    <Display id="display" value=""/>
                 </div>
                 <div className="drum-maschine" id="drum-maschine2" onClick={this.handlePush} onKeyDown={this.pressKey}>
                     <Button id="Y-pad" char="Y" file="audio/CUT-KIK(.WAV" />
@@ -115,7 +122,7 @@ const Button = (props) => {
 const Display = (props) => {
     return(
         <div 
-            id={props.id + "-container"}>
+            className={props.id + "-container"}>
                 <div id="display">{props.value}</div>
         </div>
     );
