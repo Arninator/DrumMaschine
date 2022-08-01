@@ -31,7 +31,7 @@ class DrumMaschine extends React.Component {
     playSound(id) {
         const sound = document.getElementById("audio-" + id);
         const button = document.getElementById(id);
-        const display = document.getElementById("display");
+        const display = document.getElementById("display-text");
         
         sound.currentTime = 0;
         sound.play();
@@ -59,7 +59,7 @@ class DrumMaschine extends React.Component {
                     <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
                 </div>
                 <div id="display-container">
-                    <Display id="display" value="blavla"/>
+                    <Display id="display" value=""/>
                 </div>
                 <div className="drum-maschine" id="drum-maschine2" onClick={this.handlePush} onKeyDown={this.pressKey}>
                     <Button id="Y-pad" char="Y" file="audio/CUT-KIK(.WAV" />
@@ -97,8 +97,8 @@ const Button = (props) => {
 const Display = (props) => {
     return(
         <div 
-            id={props.id}
-            value={props.value}>
+            id={props.id}>
+                <div id="display-text">{props.value}</div>
         </div>
     );
 }

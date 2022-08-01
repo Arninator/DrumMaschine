@@ -1,3 +1,4 @@
+@import url(fonts/TECHNOLOGY.TTF);
 * {
     margin: 0%;
     padding: 0%;
@@ -87,12 +88,30 @@ body {
     height: 5vh;
 
     border: 1px solid black;
-    background-image: linear-gradient(90deg, rgba(255, 166, 0, 0.459) 0%,black 15%);
-
+    background-image: linear-gradient(90deg, rgba(255, 166, 0, 0.8) 0%,black 7%);    
+}
+#display-text {
     color: orange;
-    font-family: monospace;
+    font-family: 'TECHNOLOGY', monospace;
     font-size: 28px;
     font-weight: bold;
     text-align: end;
 
+    max-width: 100%;
+    /* border: 1px solid red; */
+
+    animation-name: text-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes text-animation {
+    from { 
+        position: absolute;
+        left: 60vw;
+    }
+    to { 
+        position: absolute;
+        left: 38vw;
+    }
 }
