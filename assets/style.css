@@ -69,6 +69,10 @@ body {
     box-shadow: 0px 0px 25px rgba(128, 255, 0, 0.6), 1px 2px darkslategrey;
 
 }
+.drum-pad:disabled {
+    background-image: radial-gradient(circle, whitesmoke 0%, gainsboro, whitesmoke 75%);
+    box-shadow: 1px 2px darkslategrey;
+}
 .active{
     background-image: radial-gradient(circle, rgb(231, 248, 214) 0%, chartreuse 25%, rgb(231, 248, 214) 75%);
     border: 1px solid rgb(231, 248, 214);
@@ -182,9 +186,7 @@ input:checked + .slider:before {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
-.powered-display {
-    
-}
+
 @keyframes text-animation {
     from {
         

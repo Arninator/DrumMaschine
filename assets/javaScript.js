@@ -52,12 +52,14 @@ class DrumMaschine extends React.Component {
         if (switchButton.checked) {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.add("powered");
+                buttons[i].disabled = false;
             }
             displayContainer[0].classList.add("powered-display-container");
             display.innerText = "Push it...";
         } else {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("powered");
+                buttons[i].disabled = true;
             }
             displayContainer[0].classList.remove("powered-display-container");
             display.innerText = "";
@@ -111,7 +113,8 @@ const Button = (props) => {
             char={props.char}
             file={props.file}
             onClick={props.onClick}
-            onKeyDown={props.onKeyDown}>
+            onKeyDown={props.onKeyDown}
+            disabled>
                 {/* {props.char} */}
                 <audio id={"audio-" + props.id} >
                     <source src={props.file} type="audio/mpeg" />
