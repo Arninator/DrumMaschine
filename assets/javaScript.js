@@ -12,11 +12,12 @@ class DrumMaschine extends React.Component {
         this.pressKey = this.pressKey.bind(this);
         this.playSound = this.playSound.bind(this);
         this.handleChecked = this.handleChecked.bind(this);
+        this.regulateVolume = this.regulateVolume.bind(this);
 
     }
     componentDidMount() {
         document.addEventListener('keydown', this.pressKey);
-      }
+    }
     componentWillUnmount() {
         document.removeEventListener('keydown', this.pressKey);
     }
@@ -48,24 +49,36 @@ class DrumMaschine extends React.Component {
         const buttons = document.getElementsByClassName("drum-pad");
         const displayContainer = document.getElementsByClassName("display-container");
         const display = document.getElementById("display");
+        const texts = document.getElementsByClassName("icons");
+        const volSlider = document.getElementById("vol-control")
 
         if (switchButton.checked) {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.add("powered");
                 buttons[i].disabled = false;
             }
+            for (let i = 0; i < texts.length; i++) {
+                texts[i].classList.add("lighted-text");
+            }
             displayContainer[0].classList.add("powered-display-container");
             display.innerText = "Push it...";
+            volSlider.classList.add("vol-slider-activated");
         } else {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("powered");
                 buttons[i].disabled = true;
             }
+            for (let i = 0; i < texts.length; i++) {
+                texts[i].classList.remove("lighted-text");
+            }
             displayContainer[0].classList.remove("powered-display-container");
             display.innerText = "";
+            volSlider.classList.remove("vol-slider-activated");
         }
     }
+    regulateVolume () {
 
+    }
 
     render() {
         return(
@@ -82,13 +95,20 @@ class DrumMaschine extends React.Component {
                     <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
                 </div>
                 <div id="controls">
-                    <div id="power-div">
-                        <label className="switch">
-                            <input id="switch-button" type="checkbox" onClick={this.handleChecked}/>
-                            <span className="slider round"></span>
-                        </label>
-                        <div><i class="fa fa-power-off"></i></div>
+                    <div id="regulator-div">
+                        <div id="power-div">
+                            <label className="switch">
+                                <input id="switch-button" type="checkbox" onClick={this.handleChecked}/>
+                                <span className="slider round"></span>
+                            </label>
+                            <div className="icons"><i className="fa fa-power-off"></i></div>
+                        </div>
+                        <div id="volume-div">
+                            <div className="icons"><i className="fa fa-volume-up"></i></div>
+                            <input type="range" min="1" max="100" value="50" id="vol-control" className="vol-slider" oninput={this.regulateVolume}/>
+                        </div>
                     </div>
+
                     <Display id="display" value=""/>
                 </div>
                 <div className="drum-maschine" id="drum-maschine2" onClick={this.handlePush} onKeyDown={this.pressKey}>
@@ -119,7 +139,7 @@ const Button = (props) => {
             onKeyDown={props.onKeyDown}
             disabled>
                 {/* {props.char} */}
-                <audio id={"audio-" + props.id} >
+                <audio id={"audio-" + props.id} className="clip">
                     <source src={props.file} type="audio/mpeg" />
                 </audio>
         </button>
