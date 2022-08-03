@@ -207,6 +207,7 @@ input:checked + .slider:before {
     -webkit-transition: .4s; /* 0.2 seconds transition on hover */
     transition: opacity .4s;
     border-radius: 34px;
+    cursor: pointer;
 
 }
 .vol-slider-activated {
