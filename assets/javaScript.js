@@ -12,7 +12,6 @@ class DrumMaschine extends React.Component {
         this.pressKey = this.pressKey.bind(this);
         this.playSound = this.playSound.bind(this);
         this.handleChecked = this.handleChecked.bind(this);
-        this.regulateVolume = this.regulateVolume.bind(this);
 
     }
     componentDidMount() {
@@ -22,7 +21,6 @@ class DrumMaschine extends React.Component {
         document.removeEventListener('keydown', this.pressKey);
     }
 
-
     handlePush(e) {
         this.playSound(e.target.id);
     }
@@ -31,11 +29,12 @@ class DrumMaschine extends React.Component {
         this.playSound(code + "-pad");
     }
     playSound(id) {
-        const sound = document.getElementById("audio-" + id);
+        const sound = document.getElementById(id.charAt(0));
         const button = document.getElementById(id);
         const display = document.getElementById("display");
         
         sound.currentTime = 0;
+        sound.volume = document.getElementById("vol-control").value / 100.;
         sound.play();
 
         button.classList.add("active");
@@ -76,9 +75,6 @@ class DrumMaschine extends React.Component {
             volSlider.classList.remove("vol-slider-activated");
         }
     }
-    regulateVolume () {
-
-    }
 
     render() {
         return(
@@ -105,7 +101,7 @@ class DrumMaschine extends React.Component {
                         </div>
                         <div id="volume-div">
                             <div className="icons"><i className="fa fa-volume-up"></i></div>
-                            <input type="range" min="1" max="100" value="50" id="vol-control" className="vol-slider" oninput={this.regulateVolume}/>
+                            <input type="range" min="1" max="100" defaultValue="50" id="vol-control" className="vol-slider" />
                         </div>
                     </div>
 
@@ -137,9 +133,10 @@ const Button = (props) => {
             file={props.file}
             onClick={props.onClick}
             onKeyDown={props.onKeyDown}
+            value={props.char}
             disabled>
-                {/* {props.char} */}
-                <audio id={"audio-" + props.id} className="clip">
+                {props.char}
+                <audio id={props.char} className="clip">
                     <source src={props.file} type="audio/mpeg" />
                 </audio>
         </button>
