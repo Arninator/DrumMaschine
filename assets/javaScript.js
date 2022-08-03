@@ -135,7 +135,7 @@ const Button = (props) => {
             onKeyDown={props.onKeyDown}
             value={props.char}
             disabled>
-                {props.char}
+                {/* {props.char} */}
                 <audio id={props.char} className="clip">
                     <source src={props.file} type="audio/mpeg" />
                 </audio>
