@@ -15,7 +15,9 @@ class DrumMaschine extends React.Component {
 
     }
     componentDidMount() {
-        document.addEventListener('keydown', this.pressKey);
+        if (document.getElementById("switch-button").checked) {
+            document.addEventListener('keydown', this.pressKey);
+        }
     }
     componentWillUnmount() {
         document.removeEventListener('keydown', this.pressKey);
@@ -62,6 +64,8 @@ class DrumMaschine extends React.Component {
             displayContainer[0].classList.add("powered-display-container");
             display.innerText = "Push it...";
             volSlider.classList.add("vol-slider-activated");
+
+            this.componentDidMount();
         } else {
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("powered");
@@ -73,6 +77,8 @@ class DrumMaschine extends React.Component {
             displayContainer[0].classList.remove("powered-display-container");
             display.innerText = "";
             volSlider.classList.remove("vol-slider-activated");
+
+            this.componentWillUnmount();
         }
     }
 
