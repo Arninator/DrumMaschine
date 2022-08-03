@@ -80,15 +80,15 @@ class DrumMaschine extends React.Component {
         return(
             <div id="drum-container">
                 <div className="drum-maschine" id="drum-maschine" onClick={this.handlePush} onKeyDown={this.pressKey}>
-                    <Button id="Q-pad" char="Q" file="audio/CUT-KIK(.WAV" />
-                    <Button id="W-pad" char="W" file="audio/BASSD.WAV" />
-                    <Button id="E-pad" char="E" file="audio/AIR-SNR(.WAV" />
-                    <Button id="A-pad" char="A" file="audio/CL-HH1(L.WAV" />
-                    <Button id="S-pad" char="S" file="audio/FILTKIK(.WAV" />
-                    <Button id="D-pad" char="D" file="audio/HORNZ(LD.WAV" />
-                    <Button id="Z-pad" char="Z" file="audio/KIZICK(L.WAV" />
-                    <Button id="X-pad" char="X" file="audio/RATTLEKI.WAV" />
-                    <Button id="C-pad" char="C" file="audio/SLICESNR.WAV" />
+                    <Button id="Q-pad" char="Q" file="audio/_IMNASTY.WAV" />
+                    <Button id="W-pad" char="W" file="audio/-ECSW-SN.WAV" />
+                    <Button id="E-pad" char="E" file="audio/!HAT(LD0.WAV" />
+                    <Button id="A-pad" char="A" file="audio/(SNR)(LD.WAV" />
+                    <Button id="S-pad" char="S" file="audio/(TMK)SNR.WAV" />
+                    <Button id="D-pad" char="D" file="audio/2ILLSNR(.WAV" />
+                    <Button id="Z-pad" char="Z" file="audio/1GUIT(LD.WAV" />
+                    <Button id="X-pad" char="X" file="audio/1PULL.WAV" />
+                    <Button id="C-pad" char="C" file="audio/2GUITS(L.WAV" />
                 </div>
                 <div id="controls">
                     <div id="regulator-div">
@@ -108,15 +108,15 @@ class DrumMaschine extends React.Component {
                     <Display id="display" value=""/>
                 </div>
                 <div className="drum-maschine" id="drum-maschine2" onClick={this.handlePush} onKeyDown={this.pressKey}>
-                    <Button id="Y-pad" char="Y" file="audio/CUT-KIK(.WAV" />
-                    <Button id="U-pad" char="U" file="audio/BASSD.WAV" />
-                    <Button id="I-pad" char="I" file="audio/AIR-SNR(.WAV" />
-                    <Button id="H-pad" char="H" file="audio/CL-HH1(L.WAV" />
-                    <Button id="J-pad" char="J" file="audio/FILTKIK(.WAV" />
-                    <Button id="K-pad" char="K" file="audio/HORNZ(LD.WAV" />
-                    <Button id="B-pad" char="B" file="audio/KIZICK(L.WAV" />
-                    <Button id="N-pad" char="N" file="audio/RATTLEKI.WAV" />
-                    <Button id="M-pad" char="M" file="audio/SLICESNR.WAV" />
+                    <Button id="Y-pad" char="Y" file="audio/2KICKZ(L.WAV" />
+                    <Button id="U-pad" char="U" file="audio/2THINSNR.WAV" />
+                    <Button id="I-pad" char="I" file="audio/8BITSNR(.WAV" />
+                    <Button id="H-pad" char="H" file="audio/8O8_R.wav" />
+                    <Button id="J-pad" char="J" file="audio/88'SNR(L.WAV" />
+                    <Button id="K-pad" char="K" file="audio/100_SNR(.WAV" />
+                    <Button id="B-pad" char="B" file="audio/808_2.wav" />
+                    <Button id="N-pad" char="N" file="audio/808_3.wav" />
+                    <Button id="M-pad" char="M" file="audio/808_4.wav" />
                 </div>
             </div>
             
